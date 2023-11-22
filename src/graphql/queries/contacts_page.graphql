@@ -1,0 +1,14 @@
+query{
+  projects_paginate(first: 3) {
+    data {
+      id
+      title
+    }
+  }
+  services_paginate(first: 3, is_main: true) {
+    data {
+      id
+      title
+    }
+  }
+}

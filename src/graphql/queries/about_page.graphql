@@ -1,0 +1,31 @@
+query {
+  companyinfo {
+    id
+    title
+    subtitle
+    description
+    info_employees
+  }
+  principle_works {
+    id
+    title
+    description
+    logo
+  }
+  clients(ordering: [{orderBy: "ASC", orderColumn: "position"}]) {
+    id
+    link
+    title
+    img {
+      id
+      path
+      alt
+      links {
+        id
+        path
+        query
+      }
+    }
+    link
+  }
+}

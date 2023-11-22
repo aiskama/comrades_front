@@ -1,0 +1,37 @@
+query (
+  $ordering: [DefaultOrdering]
+  $tags: Int
+  $first: Int = 10
+  $page: Int
+) {
+  blogs_paginate(
+    ordering: $ordering
+    tags: $tags
+    first: $first
+    page: $page
+  ) {
+    data {
+      id
+      title
+      short_description
+      published_at
+      tags {
+        id
+        title
+      }
+      img {
+        id
+        path
+        alt
+        links {
+          id
+          path
+          query
+        }
+      }
+    }
+    paginatorInfo {
+      total
+    }
+  }
+}

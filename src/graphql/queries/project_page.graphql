@@ -1,0 +1,109 @@
+query ($id: Int) {
+  projects_item(id: $id) {
+    id
+    title
+    description
+    about
+    color_banner
+    info_site
+    work_result
+    tasks
+    some_text
+    solution_title
+    solution_description
+    solution_url
+    optimal_technologies
+    review_description
+    review_fio
+    review_post
+    review_img {
+      id
+      path
+      alt
+      links {
+        id
+        path
+        query
+      }
+    }
+    results {
+      id
+      title
+      value
+    }
+    palettes {
+      id
+      title
+      code
+    }
+    mob_image {
+      id
+      alt
+      path
+      links {
+        id
+        path
+        query
+      }
+    }
+    images {
+      id
+      category{
+        id
+        title
+        type {
+          id
+          code
+          name
+        }
+      }
+      img {
+        id
+        path
+        alt
+        links {
+          id
+          path
+          query
+        }
+      }
+    }
+    map_image{
+      id
+      alt
+      path
+      links {
+        id
+        path
+        query
+      }
+    }
+    parentCategories {
+      id
+      title
+      childs {
+        id
+        title
+      }
+    }
+    img {
+      id
+      path
+      alt
+      links {
+        id
+        path
+        query
+      }
+    }
+    tags {
+      id
+      title
+    }
+    technologies {
+      id
+      title
+      subtitle
+    }
+  }
+}

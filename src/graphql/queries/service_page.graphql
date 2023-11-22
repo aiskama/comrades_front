@@ -1,0 +1,75 @@
+query{
+  services {
+    id
+    title
+    text
+    description
+    icon
+    is_main
+    service_contents{
+      id
+      title
+      description
+      position
+    }
+  }
+  principle_works {
+    id
+    title
+    description
+    logo
+  }
+  competences {
+    id
+    title
+    subtitle
+  }
+  clients (ordering: [{orderBy: "ASC", orderColumn: "position"}]) {
+    id
+    img {
+      id
+      path
+      alt
+      links {
+        id
+        path
+        query
+      }
+    }
+    link
+  }
+   projects {
+    id
+    title
+    description
+    tags {
+      id
+      title
+    }
+
+    img {
+      id
+      path
+      alt
+      size
+      type
+      links {
+        id
+        path
+        query
+      }
+    }
+    map_image{
+      id
+      path
+      links {
+        id
+        path
+        query
+      }
+    }
+    services{
+      id
+    }
+  }
+}

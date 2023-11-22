@@ -1,0 +1,47 @@
+query ($id: Int) {
+  services_item (id: $id) {
+    id
+    title
+    text
+    service_contents {
+      id
+      title
+      description
+      position
+    }
+  }
+
+  projects (service_id: $id) {
+    id
+    title
+    description
+    tags {
+      id
+      title
+    }
+    img {
+      id
+      path
+      alt
+      size
+      type
+      links {
+        id
+        path
+        query
+      }
+    }
+    map_image{
+      id
+      path
+      links {
+        id
+        path
+        query
+      }
+    }
+    services{
+      id
+    }
+  }
+}

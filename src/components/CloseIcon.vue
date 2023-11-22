@@ -1,0 +1,30 @@
+<template>
+  <figure class="icon-close">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect
+        x="13.7888"
+        y="1.52588e-05"
+        width="3"
+        height="19.5"
+        rx="1.5"
+        transform="rotate(45 13.7888 1.52588e-05)"
+        fill="#132F63"
+      />
+      <rect
+        x="15.9099"
+        y="13.7886"
+        width="3"
+        height="19.5"
+        rx="1.5"
+        transform="rotate(135 15.9099 13.7886)"
+        fill="#132F63"
+      />
+    </svg>
+  </figure>
+</template>
+
+<script>
+export default {
+  name: "CloseIcon",
+};
+</script>

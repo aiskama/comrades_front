@@ -1,0 +1,80 @@
+query {
+  principle_works {
+    id
+    title
+    description
+    logo
+  }
+  competences {
+    id
+    title
+    subtitle
+  }
+  services {
+    id
+    title
+    description
+    icon
+    is_main
+  }
+  reviews {
+    id
+    title
+    post
+    description
+    img {
+      id
+      path
+      origin_name
+      alt
+      size
+      type
+    }
+    logo_image {
+      id
+      path
+      origin_name
+      alt
+      size
+      type
+    }
+  }
+  projects_paginate(first:6) {
+    data {
+      id
+      title
+      description
+      tags {
+        id
+        title
+      }
+      map_image{
+        id
+        path
+        alt
+      }
+      img {
+        id
+        path
+        alt
+      }
+    }
+  }
+  clients {
+    id
+    link
+    title
+    img {
+      id
+      path
+      alt
+    }
+  }
+  companyinfo {
+    numbers {
+      id
+      title
+      description
+    }
+  }
+}

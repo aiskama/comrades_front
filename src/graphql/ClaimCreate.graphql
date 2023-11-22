@@ -1,0 +1,15 @@
+mutation(
+  $email: String
+  $phone: String
+  $comment: String
+  $from_url: String
+) {
+  ClaimCreate(
+    email: $email
+    phone: $phone
+    comment: $comment
+    from_url: $from_url
+  ) {
+    message
+  }
+}

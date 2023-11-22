@@ -1,0 +1,79 @@
+query {
+  projects_paginate(first:6) {
+    data {
+      id
+      title
+      description
+      tags {
+        id
+        title
+      }
+      map_image{
+        id
+        path
+        alt
+        links {
+          id
+          path
+          query
+        }
+      }
+      img {
+        id
+        path
+        alt
+        links {
+          id
+          path
+          query
+        }
+      }
+    }
+  }
+  clients {
+    id
+    link
+    title
+    img {
+      id
+      path
+      alt
+      links {
+        id
+        path
+        query
+      }
+    }
+  }
+  reviews {
+    id
+    title
+    post
+    description
+    img {
+      id
+      path
+      alt
+      links {
+        id
+        path
+        query
+      }
+    }
+    logo_image {
+      id
+      path
+      origin_name
+      alt
+      size
+      type
+    }
+  }
+  companyinfo {
+    numbers {
+      id
+      title
+      description
+    }
+  }
+}

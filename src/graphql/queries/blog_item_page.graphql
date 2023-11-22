@@ -1,0 +1,91 @@
+query (
+  $id: Int
+) {
+  blogs_item(
+    id: $id
+  ) {
+    id
+    title
+    short_description
+    description
+    published_at
+    tags {
+      id
+      title
+    }
+    img {
+      id
+      path
+      alt
+      links {
+        id
+        path
+        query
+      }
+    }
+    images {
+      id
+      img {
+        id
+        path
+        alt
+        links {
+          id
+          path
+          query
+        }
+      }
+    }
+    blogs {
+      id
+      title
+      short_description
+      published_at
+      img {
+        id
+        path
+        alt
+        links {
+          id
+          path
+          query
+        }
+      }
+      tags {
+        id
+        title
+      }
+    }
+    projects {
+      id
+      title
+      tags {
+        id
+        title
+      }
+      map_image {
+        id
+        path
+        alt
+        links {
+          id
+          path
+          query
+        }
+      }
+    }
+  }
+  smis(is_blog:true) {
+    id
+    title
+    description
+    link
+    is_main
+    is_blog
+    img {
+      id
+      path
+      alt
+    }
+  }
+}

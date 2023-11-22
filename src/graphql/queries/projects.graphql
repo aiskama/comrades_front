@@ -1,0 +1,42 @@
+query($ordering: [DefaultOrdering] $categories: Int $service_id: Int) {
+  projects (ordering: $ordering, categories: $categories, service_id: $service_id) {
+    id
+    title
+    description
+    map_image{
+      id
+      alt
+      path
+      links {
+        id
+        path
+        query
+      }
+    }
+    parentCategories{
+      id
+      title
+      childs{
+        id
+        title
+        parent{
+          id
+        }
+      }
+    }
+    tags {
+      id
+      title
+    }
+    img {
+      id
+      path
+      alt
+      links {
+        id
+        path
+        query
+      }
+    }
+  }
+}

@@ -1,0 +1,102 @@
+.btn {
+  height: 50px;
+  padding: 0 20px;
+  border-radius: 10px;
+  font-weight: 400;
+  font-size: 1.25rem;
+  line-height: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border: none;
+  cursor: pointer;
+  transition: var(--transition);
+
+  &:active {
+    transform: scale(0.96);
+  }
+
+  .icon {
+    width: 20px;
+    height: 20px;
+
+    svg path {
+      transition: var(--transition);
+    }
+  }
+
+  &--blue {
+    background: var(--blue);
+    color: var(--gray);
+
+    a {
+      text-decoration: none;
+      color: var(--gray);
+    }
+
+    .icon svg path {
+      fill: var(--gray);
+    }
+
+    &:hover {
+      color: var(--white);
+      background: var(--blue-1);
+
+      a {
+        text-decoration: none;
+        color: var(--white);
+      }
+
+      .icon svg path {
+        fill: var(--white);
+      }
+    }
+  }
+
+  &--white {
+    background: var(--gray);
+    color: var(--blue);
+
+    a {
+      text-decoration: none;
+      color: var(--blue);
+    }
+
+    .icon svg path {
+      fill: var(--blue);
+    }
+
+    &:hover {
+      background: var(--gray-2);
+
+      a {
+        text-decoration: none;
+      }
+    }
+  }
+
+  &--tab{
+    background: var(--gray);
+    color: var(--gray-4);
+    height 40px
+
+    .icon svg path {
+      fill: var(--gray-4);
+    }
+    &:hover {
+      background: var(--blue);
+      color: var(--white);
+      .icon svg path {
+        fill: var(--white);
+      }
+    }
+    &-active{
+      background: var(--blue);
+      color: var(--white);
+      .icon svg path {
+        fill: var(--white);
+      }
+    }
+  }
+}

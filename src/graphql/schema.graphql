@@ -1,0 +1,2285 @@
+# This file was generated. Do not edit manually.
+
+schema {
+    query: Query
+    mutation: Mutation
+}
+
+type App {
+    created_at: DateTime
+    id: Int
+    "Название"
+    name: String
+    "git репозиторий"
+    repository: String
+    "Сервер"
+    server: Server
+    updated_at: DateTime
+    "Ссылка"
+    url: String
+}
+
+type AppLog {
+    "Приложение"
+    app: App
+    created_at: DateTime
+    id: Int
+    "Лог"
+    text: String
+    updated_at: DateTime
+}
+
+"A paginated list of AppLog items."
+type AppLogPaginator {
+    "A list of AppLog items."
+    data: [AppLog!]!
+    "Pagination information about the list of items."
+    paginatorInfo: PaginatorInfo!
+}
+
+"A paginated list of App items."
+type AppPaginator {
+    "A list of App items."
+    data: [App!]!
+    "Pagination information about the list of items."
+    paginatorInfo: PaginatorInfo!
+}
+
+type AppTask {
+    "Приложение"
+    app: App
+    created_at: DateTime
+    "Описание"
+    description: String
+    "Конец задачи"
+    finished_at: DateTime
+    id: Int
+    "Начало задачи"
+    started_at: DateTime
+    "Заголовок"
+    title: String
+    updated_at: DateTime
+}
+
+type AppTaskComment {
+    "Задача"
+    app_task: AppTask
+    "Автор"
+    author: String
+    created_at: DateTime
+    id: Int
+    "Текст"
+    title: String
+    updated_at: DateTime
+}
+
+"A paginated list of AppTaskComment items."
+type AppTaskCommentPaginator {
+    "A list of AppTaskComment items."
+    data: [AppTaskComment!]!
+    "Pagination information about the list of items."
+    paginatorInfo: PaginatorInfo!
+}
+
+"A paginated list of AppTask items."
+type AppTaskPaginator {
+    "A list of AppTask items."
+    data: [AppTask!]!
+    "Pagination information about the list of items."
+    paginatorInfo: PaginatorInfo!
+}
+
+type Blog {
+    "Получение новостей с таким же тегом"
+    blogs: [Blog]
+    created_at: DateTime
+    "Описание"
+    description: String
+    id: Int
+    "Слайдер"
+    images: [Slider]
+    "Изображение"
+    img: Img
+    "Получение проектов с таким же тегом"
+    projects: [Project]
+    "Дата публикации"
+    published_at: DateTime
+    "Короткое описание"
+    short_description: String
+    status: Status
+    status_id: Int
+    "Теги блога"
+    tags: [Tag]
+    "Заголовок"
+    title: String
+    updated_at: DateTime
+}
+
+"A paginated list of Blog items."
+type BlogPaginator {
+    "A list of Blog items."
+    data: [Blog!]!
+    "Pagination information about the list of items."
+    paginatorInfo: PaginatorInfo!
+}
+
+type Category {
+    childs: [Category]
+    created_at: DateTime
+    id: Int
+    "Связь родителя/ребенка"
+    parent: Category
+    projects: [Project]
+    status: Status
+    status_id: Int
+    "Название"
+    title: String
+    type: Type
+    updated_at: DateTime
+}
+
+"A paginated list of Category items."
+type CategoryPaginator {
+    "A list of Category items."
+    data: [Category!]!
+    "Pagination information about the list of items."
+    paginatorInfo: PaginatorInfo!
+}
+
+type Claim {
+    "Комментарий"
+    comment: String
+    created_at: DateTime
+    "Почта"
+    email: String
+    "ссылка запроса"
+    from_url: String
+    id: Int
+    "Номер телефона"
+    phone: String
+    status: Status
+    status_id: Int
+    type: Type
+    updated_at: DateTime
+}
+
+"A paginated list of Claim items."
+type ClaimPaginator {
+    "A list of Claim items."
+    data: [Claim!]!
+    "Pagination information about the list of items."
+    paginatorInfo: PaginatorInfo!
+}
+
+type Client {
+    created_at: DateTime
+    id: Int
+    "Изображение"
+    img: Img
+    "Вывод на главное"
+    is_main: Boolean
+    "Ссылка на проект"
+    link: String
+    position: Int
+    status: Status
+    status_id: Int
+    "Название"
+    title: String
+    updated_at: DateTime
+}
+
+"A paginated list of Client items."
+type ClientPaginator {
+    "A list of Client items."
+    data: [Client!]!
+    "Pagination information about the list of items."
+    paginatorInfo: PaginatorInfo!
+}
+
+type CompanyInfo {
+    created_at: DateTime
+    "Описание"
+    description: String
+    id: Int
+    "Изображение"
+    img: Img
+    "Информация о сотрудниках"
+    info_employees: String
+    "Мы в цифрах"
+    numbers: [Number]
+    status: Status
+    status_id: Int
+    "Подзаголовок"
+    subtitle: String
+    "Заголовок"
+    title: String
+    updated_at: DateTime
+}
+
+type Competence {
+    created_at: DateTime
+    id: Int
+    status: Status
+    status_id: Int
+    "Подзаголовок"
+    subtitle: String
+    "Заголовок"
+    title: String
+    updated_at: DateTime
+}
+
+"A paginated list of Competence items."
+type CompetencePaginator {
+    "A list of Competence items."
+    data: [Competence!]!
+    "Pagination information about the list of items."
+    paginatorInfo: PaginatorInfo!
+}
+
+type ContactInfo {
+    "адрес"
+    address: String
+    created_at: DateTime
+    "Почта"
+    email: String
+    id: Int
+    "Номер телефона"
+    phone: String
+    "Способ связи"
+    socials: [Social]
+    "Город"
+    towns: [Town]
+    updated_at: DateTime
+}
+
+type DefaultResponse {
+    code: Int
+    message: String
+}
+
+"Файл"
+type Document {
+    "Текст при неуспешной загрузке файла"
+    alt: String
+    "id файла (table: documents)"
+    id: Int
+    "Название файла"
+    origin_name: String
+    "Путь к изображению"
+    path: String
+    "Размер файла (1.3 Мб)"
+    size: String
+    "Тип файла (docx, pdf)"
+    type: String
+}
+
+type EmailConfirmResponse {
+    code: Int
+    message: String
+    token: String
+    user: User
+}
+
+type FileResponse {
+    origin_name: String
+    path: String
+    size: String
+    type: String
+}
+
+type ImageLink {
+    id: Int
+    "Путь к изображению"
+    path: String
+    "Параметры изображения"
+    query: String
+}
+
+"Изображение"
+type Img {
+    "Текст при неуспешной загрузке изображения"
+    alt: String
+    "id изображения (table: img)"
+    id: Int
+    links: [ImageLink]
+    "Название изображения"
+    origin_name: String
+    "Путь к изображению"
+    path: String
+    "Размер изображения (1.3 Мб)"
+    size: String
+    "Тип изображения (jpg, png)"
+    type: String
+}
+
+"Ответ при мутации"
+type JoinData {
+    "Дата создания"
+    created_at: DateTime
+    "id связки данных"
+    id: Int
+    "Статус"
+    status: Status
+    "Статус id"
+    status_id: Int
+    "Заголовок"
+    title: String
+    "Тип"
+    type: Type
+    "Дата редактирования"
+    updated_at: DateTime
+}
+
+"A paginated list of User items."
+type JoinDataPaginator {
+    "A list of JoinData items."
+    data: [JoinData!]!
+    "Pagination information about the list of items."
+    paginatorInfo: PaginatorInfo!
+}
+
+type LoginResponse {
+    code: Int
+    message: String
+    token: String
+    user: User
+}
+
+type Mutation {
+    "Авторизация админа"
+    AdminLogin(email: String, password: String): LoginResponse
+    AppCreate(
+        "Название"
+        name: String,
+        "git репозиторий"
+        repository: String,
+        "Сервер"
+        server: Int,
+        "Ссылка"
+        url: String
+    ): DefaultResponse
+    AppLogCreate(
+        "Приложение"
+        app: Int,
+        "Лог"
+        text: String
+    ): DefaultResponse
+    AppLogUpdate(
+        "Приложение"
+        app: Int,
+        id: Int,
+        "Лог"
+        text: String
+    ): DefaultResponse
+    AppTaskCommentCreate(
+        "Задача"
+        app_task: Int,
+        "Автор"
+        author: String,
+        "Текст"
+        title: String
+    ): DefaultResponse
+    AppTaskCommentUpdate(
+        "Задача"
+        app_task: Int,
+        "Автор"
+        author: String,
+        id: Int,
+        "Текст"
+        title: String
+    ): DefaultResponse
+    AppTaskCreate(
+        "Приложение"
+        app: Int,
+        "Описание"
+        description: String,
+        "Конец задачи"
+        finished_at: DateTime,
+        "Начало задачи"
+        started_at: DateTime,
+        "Заголовок"
+        title: String
+    ): DefaultResponse
+    AppTaskUpdate(
+        "Приложение"
+        app: Int,
+        "Описание"
+        description: String,
+        "Конец задачи"
+        finished_at: DateTime,
+        id: Int,
+        "Начало задачи"
+        started_at: DateTime,
+        "Заголовок"
+        title: String
+    ): DefaultResponse
+    AppUpdate(
+        id: Int,
+        "Название"
+        name: String,
+        "git репозиторий"
+        repository: String,
+        "Сервер"
+        server: Int,
+        "Ссылка"
+        url: String
+    ): DefaultResponse
+    BlogCreate(
+        "Описание"
+        description: String,
+        "Слайдер"
+        images: [SliderInput],
+        "Изображение"
+        img: ImgInput,
+        "Дата публикации"
+        published_at: DateTime,
+        "Короткое описание"
+        short_description: String,
+        "Теги блога"
+        tags: [Int],
+        "Заголовок"
+        title: String
+    ): DefaultResponse
+    BlogUpdate(
+        "Описание"
+        description: String,
+        id: Int,
+        "Слайдер"
+        images: [SliderInput],
+        "Изображение"
+        img: ImgInput,
+        "Дата публикации"
+        published_at: DateTime,
+        "Короткое описание"
+        short_description: String,
+        "Теги блога"
+        tags: [Int],
+        "Заголовок"
+        title: String
+    ): DefaultResponse
+    CategoryCreate(
+        "Связь родителя/ребенка"
+        parent: Int,
+        "Название"
+        title: String,
+        type: Int
+    ): DefaultResponse
+    CategoryUpdate(
+        id: Int,
+        "Связь родителя/ребенка"
+        parent: Int,
+        "Название"
+        title: String,
+        type: Int
+    ): DefaultResponse
+    "Смена статуса сущностей"
+    ChangeStatus(items: [StatusInput]): DefaultResponse
+    ClaimCreate(
+        "Комментарий"
+        comment: String,
+        "Почта"
+        email: String,
+        "ссылка запроса"
+        from_url: String,
+        "Номер телефона"
+        phone: String,
+        title: String,
+        type_id: Int
+    ): DefaultResponse
+    ClientCreate(
+        "Изображение"
+        img: ImgInput,
+        "Вывод на главное"
+        is_main: Boolean,
+        "Ссылка на проект"
+        link: String,
+        position: Int,
+        "Название"
+        title: String
+    ): DefaultResponse
+    ClientUpdate(
+        id: Int,
+        "Изображение"
+        img: ImgInput,
+        "Вывод на главное"
+        is_main: Boolean,
+        "Ссылка на проект"
+        link: String,
+        position: Int,
+        "Название"
+        title: String
+    ): DefaultResponse
+    ClientsPositionChange(clients: [PositionInput]): DefaultResponse
+    CompanyInfoUpdate(
+        "Описание"
+        description: String,
+        "Изображение"
+        img: ImgInput,
+        "Информация о сотрудниках"
+        info_employees: String,
+        numbers: [NumberInput],
+        "Подзаголовок"
+        subtitle: String,
+        "Заголовок"
+        title: String
+    ): DefaultResponse
+    CompetenceCreate(
+        "Подзаголовок"
+        subtitle: String,
+        "Заголовок"
+        title: String
+    ): DefaultResponse
+    CompetenceUpdate(
+        id: Int,
+        "Подзаголовок"
+        subtitle: String,
+        "Заголовок"
+        title: String
+    ): DefaultResponse
+    ContactInfoUpdate(
+        "адрес"
+        address: String,
+        "Почта"
+        email: String,
+        "Номер телефона"
+        phone: String,
+        "Способ связи"
+        socials: [SocialInput],
+        "Город"
+        towns: [TownInput]
+    ): DefaultResponse
+    """
+
+    Загрузка файла на сервер
+    возвращает путь к файлу
+    """
+    FileUpload(
+        "Файл"
+        file: Upload,
+        "Путь до файла"
+        path: String
+    ): String
+    """
+
+    Загрузка файла на сервер
+    возвращает путь к файлу
+    """
+    FilesUpload(
+        "Файл"
+        files: [Upload],
+        path: String
+    ): [FileResponse]
+    "Загрузка и обрезка изображения"
+    ImageUploadCrop(height: Int!, image: Upload!, rotate: Int!, scaleX: Int!, scaleY: Int!, width: Int!, x: Int!, y: Int!): UploadedImage
+    OptimalTechnologyCreate(
+        "Описание"
+        description: String,
+        "Заголовок"
+        title: String
+    ): DefaultResponse
+    OptimalTechnologyUpdate(
+        "Описание"
+        description: String,
+        id: Int,
+        "Заголовок"
+        title: String
+    ): DefaultResponse
+    OurServicesCreate(
+        "Описание"
+        description: String,
+        "Логотип"
+        logo: String,
+        "Название"
+        title: String
+    ): DefaultResponse
+    OurServicesUpdate(
+        "Описание"
+        description: String,
+        id: Int,
+        "Логотип"
+        logo: String,
+        "Название"
+        title: String
+    ): DefaultResponse
+    PrincipleWorkCreate(
+        "Описание"
+        description: String,
+        "Логотип"
+        logo: String,
+        "Название"
+        title: String
+    ): DefaultResponse
+    PrincipleWorkUpdate(
+        "Описание"
+        description: String,
+        id: Int,
+        "Логотип"
+        logo: String,
+        "Название"
+        title: String
+    ): DefaultResponse
+    ProjectCreate(
+        about: String,
+        "Категория проекта"
+        categories: [Int],
+        "Цвет баннера"
+        color_banner: String,
+        "Описание"
+        description: String,
+        "Слайдер"
+        images: [SliderInput],
+        "Изображение"
+        img: ImgInput,
+        "Информация о сайте"
+        info_site: String,
+        "Изображение"
+        map_image: ImgInput,
+        "Изображение мобилки"
+        mob_image: ImgInput,
+        "Оптимальные технологии"
+        optimal_technologies: String,
+        "Палитра"
+        palettes: [PaletteInput],
+        "Резуальтаты"
+        results: [ResultInput],
+        "Отзыв Описание"
+        review_description: String,
+        "Отзыв ФИО"
+        review_fio: String,
+        "Отзыв Изображение"
+        review_img: ImgInput,
+        "Отзыв Должность"
+        review_post: String,
+        "Услуги"
+        services: [Int],
+        "Описание решения"
+        solution_description: String,
+        "Заголовок решения"
+        solution_title: String,
+        "Ссылка на сайт решения"
+        solution_url: String,
+        "Какой-то синий текст после Результатов работы"
+        some_text: String,
+        "Тег проекта"
+        tags: [Int],
+        "Задачи проекта"
+        tasks: String,
+        "Технологии"
+        technologies: [TechnologyInput],
+        "Название"
+        title: String,
+        "Результат работы"
+        work_result: String
+    ): DefaultResponse
+    ProjectUpdate(
+        about: String,
+        "Категория проекта"
+        categories: [Int],
+        "Цвет баннера"
+        color_banner: String,
+        "Описание"
+        description: String,
+        id: Int,
+        "Слайдер"
+        images: [SliderInput],
+        "Изображение"
+        img: ImgInput,
+        "Информация о сайте"
+        info_site: String,
+        "Изображение"
+        map_image: ImgInput,
+        "Изображение мобилки"
+        mob_image: ImgInput,
+        "Оптимальные технологии"
+        optimal_technologies: String,
+        "Палитра"
+        palettes: [PaletteInput],
+        "Резуальтаты"
+        results: [ResultInput],
+        "Отзыв Описание"
+        review_description: String,
+        "Отзыв ФИО"
+        review_fio: String,
+        "Отзыв Изображение"
+        review_img: ImgInput,
+        "Отзыв Должность"
+        review_post: String,
+        "Услуги"
+        services: [Int],
+        "Описание решения"
+        solution_description: String,
+        "Заголовок решения"
+        solution_title: String,
+        "Ссылка на сайт решения"
+        solution_url: String,
+        "Какой-то синий текст после Результатов работы"
+        some_text: String,
+        "Тег проекта"
+        tags: [Int],
+        "Задачи проекта"
+        tasks: String,
+        "Технологии"
+        technologies: [TechnologyInput],
+        "Название"
+        title: String,
+        "Результат работы"
+        work_result: String
+    ): DefaultResponse
+    ResultCreate(
+        "Заголовок"
+        title: String,
+        "Значение"
+        value: String
+    ): DefaultResponse
+    ResultUpdate(
+        id: Int,
+        "Заголовок"
+        title: String,
+        "Значение"
+        value: String
+    ): DefaultResponse
+    ReviewCreate(
+        "Описание"
+        description: String,
+        "Изображение"
+        img: ImgInput,
+        "Изображение лого"
+        logo_image: ImgInput,
+        "Должность"
+        post: String,
+        "ФИО"
+        title: String
+    ): DefaultResponse
+    ReviewUpdate(
+        "Описание"
+        description: String,
+        id: Int,
+        "Изображение"
+        img: ImgInput,
+        "Изображение лого"
+        logo_image: ImgInput,
+        "Должность"
+        post: String,
+        "ФИО"
+        title: String
+    ): DefaultResponse
+    RouteCreate(
+        "Описание"
+        description: String,
+        "Иконка"
+        icon: String,
+        "Названия"
+        title: String
+    ): DefaultResponse
+    RouteUpdate(
+        "Описание"
+        description: String,
+        "Иконка"
+        icon: String,
+        id: Int,
+        "Названия"
+        title: String
+    ): DefaultResponse
+    ServerCreate(
+        "IP адрес"
+        ip_address: String,
+        "Локальный IP адрес"
+        local_ip_address: String,
+        "Название"
+        name: String,
+        "Владелец"
+        user: Int
+    ): DefaultResponse
+    ServerEventCreate(
+        "Событие"
+        description: String,
+        "Сервер"
+        server: Int
+    ): DefaultResponse
+    ServerEventUpdate(
+        "Событие"
+        description: String,
+        id: Int,
+        "Сервер"
+        server: Int
+    ): DefaultResponse
+    ServerLoadStatCreate(
+        "CPU"
+        cpu: String,
+        "HDD"
+        ram: String,
+        "Сервер"
+        server: Int
+    ): DefaultResponse
+    ServerLoadStatUpdate(
+        "CPU"
+        cpu: String,
+        id: Int,
+        "HDD"
+        ram: String,
+        "Сервер"
+        server: Int
+    ): DefaultResponse
+    ServerUpdate(
+        id: Int,
+        "IP адрес"
+        ip_address: String,
+        "Локальный IP адрес"
+        local_ip_address: String,
+        "Название"
+        name: String,
+        "Владелец"
+        user: Int
+    ): DefaultResponse
+    ServiceCreate(
+        "Привязка категорий"
+        categories: [Int],
+        "Описание"
+        description: String,
+        icon: String,
+        "На главную"
+        is_main: Boolean,
+        "Направления разработки"
+        routes: [RouteInput],
+        "Этапы услуги"
+        service_contents: [ServiceContentInput],
+        text: String,
+        "Название"
+        title: String
+    ): DefaultResponse
+    ServiceUpdate(
+        "Привязка категорий"
+        categories: [Int],
+        "Описание"
+        description: String,
+        icon: String,
+        id: Int,
+        "На главную"
+        is_main: Boolean,
+        "Направления разработки"
+        routes: [RouteInput],
+        "Этапы услуги"
+        service_contents: [ServiceContentInput],
+        text: String,
+        "Название"
+        title: String
+    ): DefaultResponse
+    SocialCreate(
+        "Ссылка"
+        link: String,
+        "Название соц.сети"
+        title: String,
+        "Значение"
+        value: String
+    ): DefaultResponse
+    SocialUpdate(
+        id: Int,
+        "Ссылка"
+        link: String,
+        "Название соц.сети"
+        title: String,
+        "Значение"
+        value: String
+    ): DefaultResponse
+    SolutionCreate(
+        "Описание"
+        description: String,
+        "Заголовок"
+        title: String,
+        "Ссылка"
+        url: String
+    ): DefaultResponse
+    SolutionUpdate(
+        "Описание"
+        description: String,
+        id: Int,
+        "Заголовок"
+        title: String,
+        "Ссылка"
+        url: String
+    ): DefaultResponse
+    TagCreate(
+        "Название"
+        title: String
+    ): DefaultResponse
+    TagUpdate(
+        id: Int,
+        "Название"
+        title: String
+    ): DefaultResponse
+    TaskCreate(
+        "Описание"
+        description: String
+    ): DefaultResponse
+    TaskUpdate(
+        "Описание"
+        description: String,
+        id: Int
+    ): DefaultResponse
+    "Смена пароля"
+    UserChangePassword(old_password: String, password: String, password_confirmation: String): DefaultResponse!
+    "Подтвердить почту"
+    UserEmailConfirm(token: String): EmailConfirmResponse
+    "Отправка письма для восстановления пароля"
+    UserForgotPassword(email: String): DefaultResponse!
+    "Авторизация пользователя"
+    UserLogin(email: String, password: String): LoginResponse
+    "Редактирование профиля пользователя"
+    UserProfileEdit(email: String, head_img: ImgInput, name: String): DefaultResponse
+    "Регистрация пользователя"
+    UserRegister(email: String, name: String, password: String, password_confirmation: String): DefaultResponse
+    "Сброс пароля"
+    UserResetPassword(email: String, password: String, password_confirmation: String, token: String): DefaultResponse!
+}
+
+type Number {
+    company_infos_id: Int
+    created_at: DateTime
+    description: String
+    id: Int
+    status: Status
+    status_id: Int
+    title: String
+    updated_at: DateTime
+}
+
+"A paginated list of Number items."
+type NumberPaginator {
+    "A list of Number items."
+    data: [Number!]!
+    "Pagination information about the list of items."
+    paginatorInfo: PaginatorInfo!
+}
+
+type OptimalTechnology {
+    created_at: DateTime
+    "Описание"
+    description: String
+    id: Int
+    status: Status
+    status_id: Int
+    "Заголовок"
+    title: String
+    updated_at: DateTime
+}
+
+"A paginated list of OptimalTechnology items."
+type OptimalTechnologyPaginator {
+    "A list of OptimalTechnology items."
+    data: [OptimalTechnology!]!
+    "Pagination information about the list of items."
+    paginatorInfo: PaginatorInfo!
+}
+
+type OurServices {
+    created_at: DateTime
+    "Описание"
+    description: String
+    id: Int
+    "Логотип"
+    logo: String
+    status: Status
+    status_id: Int
+    "Название"
+    title: String
+    updated_at: DateTime
+}
+
+"A paginated list of OurServices items."
+type OurServicesPaginator {
+    "A list of OurServices items."
+    data: [OurServices!]!
+    "Pagination information about the list of items."
+    paginatorInfo: PaginatorInfo!
+}
+
+"Information about pagination using a Relay style cursor connection."
+type PageInfo {
+    "Number of nodes in the current page."
+    count: Int!
+    "Index of the current page."
+    currentPage: Int!
+    "The cursor to continue paginating forwards."
+    endCursor: String
+    "When paginating forwards, are there more items?"
+    hasNextPage: Boolean!
+    "When paginating backwards, are there more items?"
+    hasPreviousPage: Boolean!
+    "Index of the last available page."
+    lastPage: Int!
+    "The cursor to continue paginating backwards."
+    startCursor: String
+    "Total number of nodes in the paginated connection."
+    total: Int!
+}
+
+"Information about pagination using a fully featured paginator."
+type PaginatorInfo {
+    "Number of items in the current page."
+    count: Int!
+    "Index of the current page."
+    currentPage: Int!
+    "Index of the first item in the current page."
+    firstItem: Int
+    "Are there more pages after this one?"
+    hasMorePages: Boolean!
+    "Index of the last item in the current page."
+    lastItem: Int
+    "Index of the last available page."
+    lastPage: Int!
+    "Number of items per page."
+    perPage: Int!
+    "Number of total available items."
+    total: Int!
+}
+
+type Palette {
+    "Код цвета"
+    code: String
+    created_at: DateTime
+    id: Int
+    status: Status
+    status_id: Int
+    "Название"
+    title: String
+    updated_at: DateTime
+}
+
+"A paginated list of Palette items."
+type PalettePaginator {
+    "A list of Palette items."
+    data: [Palette!]!
+    "Pagination information about the list of items."
+    paginatorInfo: PaginatorInfo!
+}
+
+type PrincipleWork {
+    created_at: DateTime
+    "Описание"
+    description: String
+    id: Int
+    "Логотип"
+    logo: String
+    status: Status
+    status_id: Int
+    "Название"
+    title: String
+    updated_at: DateTime
+}
+
+"A paginated list of PrincipleWork items."
+type PrincipleWorkPaginator {
+    "A list of PrincipleWork items."
+    data: [PrincipleWork!]!
+    "Pagination information about the list of items."
+    paginatorInfo: PaginatorInfo!
+}
+
+type Project {
+    about: String
+    "Категория проекта"
+    categories: [Category]
+    "Цвет баннера"
+    color_banner: String
+    created_at: DateTime
+    "Описание"
+    description: String
+    id: Int
+    "Слайдер"
+    images: [Slider]
+    "Изображение"
+    img: Img
+    "Информация о сайте"
+    info_site: String
+    "Изображение"
+    map_image: Img
+    "Изображение мобилки"
+    mob_image: Img
+    "Оптимальные технологии"
+    optimal_technologies: String
+    "Палитра"
+    palettes: [Palette]
+    parentCategories: [Category]
+    "Результаты"
+    results: [Result]
+    "Отзыв Описание"
+    review_description: String
+    "Отзыв ФИО"
+    review_fio: String
+    "Отзыв Изображение"
+    review_img: Img
+    "Отзыв Должность"
+    review_post: String
+    "Услуги"
+    services: [Service]
+    "Описание решения"
+    solution_description: String
+    "Заголовок решения"
+    solution_title: String
+    "Ссылка на сайт решения"
+    solution_url: String
+    "Какой-то синий текст после Результатов работы"
+    some_text: String
+    status: Status
+    status_id: Int
+    "Тег проекта"
+    tags: [Tag]
+    "Задачи проекта"
+    tasks: String
+    "Технологии"
+    technologies: [Technology]
+    "Название"
+    title: String
+    updated_at: DateTime
+    "Результат работы"
+    work_result: String
+}
+
+"A paginated list of Project items."
+type ProjectPaginator {
+    "A list of Project items."
+    data: [Project!]!
+    "Pagination information about the list of items."
+    paginatorInfo: PaginatorInfo!
+}
+
+type Query {
+    admin_app_logs(ordering: [DefaultOrdering]): [AppLog]
+    admin_app_logs_item(id: Int, ordering: [DefaultOrdering]): AppLog
+    admin_app_logs_paginate(
+        "Limits number of fetched items."
+        first: Int = 10,
+        ordering: [DefaultOrdering],
+        "The offset from which items are returned."
+        page: Int
+    ): AppLogPaginator
+    admin_app_task_comments(ordering: [DefaultOrdering]): [AppTaskComment]
+    admin_app_task_comments_item(id: Int, ordering: [DefaultOrdering]): AppTaskComment
+    admin_app_task_comments_paginate(
+        "Limits number of fetched items."
+        first: Int = 10,
+        ordering: [DefaultOrdering],
+        "The offset from which items are returned."
+        page: Int
+    ): AppTaskCommentPaginator
+    admin_app_tasks(ordering: [DefaultOrdering]): [AppTask]
+    admin_app_tasks_item(id: Int, ordering: [DefaultOrdering]): AppTask
+    admin_app_tasks_paginate(
+        "Limits number of fetched items."
+        first: Int = 10,
+        ordering: [DefaultOrdering],
+        "The offset from which items are returned."
+        page: Int
+    ): AppTaskPaginator
+    admin_apps(ordering: [DefaultOrdering]): [App]
+    admin_apps_item(id: Int, ordering: [DefaultOrdering]): App
+    admin_apps_paginate(
+        "Limits number of fetched items."
+        first: Int = 10,
+        ordering: [DefaultOrdering],
+        "The offset from which items are returned."
+        page: Int
+    ): AppPaginator
+    admin_blogs(ordering: [DefaultOrdering], tags: Int): [Blog]
+    admin_blogs_item(id: Int, ordering: [DefaultOrdering], tags: Int): Blog
+    admin_blogs_paginate(
+        "Limits number of fetched items."
+        first: Int = 10,
+        ordering: [DefaultOrdering],
+        "The offset from which items are returned."
+        page: Int,
+        tags: Int
+    ): BlogPaginator
+    admin_categories(ordering: [DefaultOrdering]): [Category]
+    admin_categories_item(id: Int, ordering: [DefaultOrdering]): Category
+    admin_categories_paginate(
+        "Limits number of fetched items."
+        first: Int = 10,
+        ordering: [DefaultOrdering],
+        "The offset from which items are returned."
+        page: Int
+    ): CategoryPaginator
+    admin_child_categories(ordering: [DefaultOrdering]): [Category]
+    admin_claims(ordering: [DefaultOrdering]): [Claim]
+    admin_claims_item(id: Int, ordering: [DefaultOrdering]): Claim
+    admin_claims_paginate(
+        "Limits number of fetched items."
+        first: Int = 10,
+        ordering: [DefaultOrdering],
+        "The offset from which items are returned."
+        page: Int
+    ): ClaimPaginator
+    admin_clients(ordering: [DefaultOrdering]): [Client]
+    admin_clients_item(id: Int, ordering: [DefaultOrdering]): Client
+    admin_clients_paginate(
+        "Limits number of fetched items."
+        first: Int = 10,
+        ordering: [DefaultOrdering],
+        "The offset from which items are returned."
+        page: Int
+    ): ClientPaginator
+    admin_competences(ordering: [DefaultOrdering]): [Competence]
+    admin_competences_item(id: Int, ordering: [DefaultOrdering]): Competence
+    admin_competences_paginate(
+        "Limits number of fetched items."
+        first: Int = 10,
+        ordering: [DefaultOrdering],
+        "The offset from which items are returned."
+        page: Int
+    ): CompetencePaginator
+    admin_numbers(ordering: [DefaultOrdering]): [Number]
+    admin_numbers_item(id: Int, ordering: [DefaultOrdering]): Number
+    admin_numbers_paginate(
+        "Limits number of fetched items."
+        first: Int = 10,
+        ordering: [DefaultOrdering],
+        "The offset from which items are returned."
+        page: Int
+    ): NumberPaginator
+    admin_optimal_technologies(ordering: [DefaultOrdering]): [OptimalTechnology]
+    admin_optimal_technologies_item(id: Int, ordering: [DefaultOrdering]): OptimalTechnology
+    admin_optimal_technologies_paginate(
+        "Limits number of fetched items."
+        first: Int = 10,
+        ordering: [DefaultOrdering],
+        "The offset from which items are returned."
+        page: Int
+    ): OptimalTechnologyPaginator
+    admin_our_services(ordering: [DefaultOrdering]): [OurServices]
+    admin_our_services_item(id: Int, ordering: [DefaultOrdering]): OurServices
+    admin_our_services_paginate(
+        "Limits number of fetched items."
+        first: Int = 10,
+        ordering: [DefaultOrdering],
+        "The offset from which items are returned."
+        page: Int
+    ): OurServicesPaginator
+    admin_palettes(ordering: [DefaultOrdering]): [Palette]
+    admin_palettes_item(id: Int, ordering: [DefaultOrdering]): Palette
+    admin_palettes_paginate(
+        "Limits number of fetched items."
+        first: Int = 10,
+        ordering: [DefaultOrdering],
+        "The offset from which items are returned."
+        page: Int
+    ): PalettePaginator
+    admin_parent_categories(ordering: [DefaultOrdering]): [Category]
+    admin_principle_works(ordering: [DefaultOrdering]): [PrincipleWork]
+    admin_principle_works_item(id: Int, ordering: [DefaultOrdering]): PrincipleWork
+    admin_principle_works_paginate(
+        "Limits number of fetched items."
+        first: Int = 10,
+        ordering: [DefaultOrdering],
+        "The offset from which items are returned."
+        page: Int
+    ): PrincipleWorkPaginator
+    admin_projects(categories: Int, ordering: [DefaultOrdering], service_id: Int): [Project]
+    admin_projects_item(categories: Int, id: Int, ordering: [DefaultOrdering], service_id: Int): Project
+    admin_projects_paginate(
+        categories: Int,
+        "Limits number of fetched items."
+        first: Int = 10,
+        ordering: [DefaultOrdering],
+        "The offset from which items are returned."
+        page: Int,
+        service_id: Int
+    ): ProjectPaginator
+    admin_results(ordering: [DefaultOrdering]): [Result]
+    admin_results_item(id: Int, ordering: [DefaultOrdering]): Result
+    admin_results_paginate(
+        "Limits number of fetched items."
+        first: Int = 10,
+        ordering: [DefaultOrdering],
+        "The offset from which items are returned."
+        page: Int
+    ): ResultPaginator
+    admin_reviews(ordering: [DefaultOrdering]): [Review]
+    admin_reviews_item(id: Int, ordering: [DefaultOrdering]): Review
+    admin_reviews_paginate(
+        "Limits number of fetched items."
+        first: Int = 10,
+        ordering: [DefaultOrdering],
+        "The offset from which items are returned."
+        page: Int
+    ): ReviewPaginator
+    admin_routes(ordering: [DefaultOrdering]): [Route]
+    admin_routes_item(id: Int, ordering: [DefaultOrdering]): Route
+    admin_routes_paginate(
+        "Limits number of fetched items."
+        first: Int = 10,
+        ordering: [DefaultOrdering],
+        "The offset from which items are returned."
+        page: Int
+    ): RoutePaginator
+    admin_server_events(ordering: [DefaultOrdering]): [ServerEvent]
+    admin_server_events_item(id: Int, ordering: [DefaultOrdering]): ServerEvent
+    admin_server_events_paginate(
+        "Limits number of fetched items."
+        first: Int = 10,
+        ordering: [DefaultOrdering],
+        "The offset from which items are returned."
+        page: Int
+    ): ServerEventPaginator
+    admin_server_load_stats(ordering: [DefaultOrdering]): [ServerLoadStat]
+    admin_server_load_stats_item(id: Int, ordering: [DefaultOrdering]): ServerLoadStat
+    admin_server_load_stats_paginate(
+        "Limits number of fetched items."
+        first: Int = 10,
+        ordering: [DefaultOrdering],
+        "The offset from which items are returned."
+        page: Int
+    ): ServerLoadStatPaginator
+    admin_servers(ordering: [DefaultOrdering]): [Server]
+    admin_servers_item(id: Int, ordering: [DefaultOrdering]): Server
+    admin_servers_paginate(
+        "Limits number of fetched items."
+        first: Int = 10,
+        ordering: [DefaultOrdering],
+        "The offset from which items are returned."
+        page: Int
+    ): ServerPaginator
+    admin_service_contents(ordering: [DefaultOrdering]): [ServiceContent]
+    admin_service_contents_item(id: Int, ordering: [DefaultOrdering]): ServiceContent
+    admin_service_contents_paginate(
+        "Limits number of fetched items."
+        first: Int = 10,
+        ordering: [DefaultOrdering],
+        "The offset from which items are returned."
+        page: Int
+    ): ServiceContentPaginator
+    admin_services(is_main: Boolean, ordering: [DefaultOrdering]): [Service]
+    admin_services_item(id: Int, ordering: [DefaultOrdering]): Service
+    admin_services_paginate(
+        "Limits number of fetched items."
+        first: Int = 10,
+        is_main: Boolean,
+        ordering: [DefaultOrdering],
+        "The offset from which items are returned."
+        page: Int
+    ): ServicePaginator
+    admin_sliders(ordering: [DefaultOrdering]): [Slider]
+    admin_sliders_item(id: Int, ordering: [DefaultOrdering]): Slider
+    admin_sliders_paginate(
+        "Limits number of fetched items."
+        first: Int = 10,
+        ordering: [DefaultOrdering],
+        "The offset from which items are returned."
+        page: Int
+    ): SliderPaginator
+    admin_socials(ordering: [DefaultOrdering]): [Social]
+    admin_socials_item(id: Int, ordering: [DefaultOrdering]): Social
+    admin_socials_paginate(
+        "Limits number of fetched items."
+        first: Int = 10,
+        ordering: [DefaultOrdering],
+        "The offset from which items are returned."
+        page: Int
+    ): SocialPaginator
+    admin_solutions(ordering: [DefaultOrdering]): [Solution]
+    admin_solutions_item(id: Int, ordering: [DefaultOrdering]): Solution
+    admin_solutions_paginate(
+        "Limits number of fetched items."
+        first: Int = 10,
+        ordering: [DefaultOrdering],
+        "The offset from which items are returned."
+        page: Int
+    ): SolutionPaginator
+    admin_tags(ordering: [DefaultOrdering]): [Tag]
+    admin_tags_item(id: Int, ordering: [DefaultOrdering]): Tag
+    admin_tags_paginate(
+        "Limits number of fetched items."
+        first: Int = 10,
+        ordering: [DefaultOrdering],
+        "The offset from which items are returned."
+        page: Int
+    ): TagPaginator
+    admin_tasks(ordering: [DefaultOrdering]): [Task]
+    admin_tasks_item(id: Int, ordering: [DefaultOrdering]): Task
+    admin_tasks_paginate(
+        "Limits number of fetched items."
+        first: Int = 10,
+        ordering: [DefaultOrdering],
+        "The offset from which items are returned."
+        page: Int
+    ): TaskPaginator
+    admin_technologies(ordering: [DefaultOrdering]): [Technology]
+    admin_technologies_item(id: Int, ordering: [DefaultOrdering]): Technology
+    admin_technologies_paginate(
+        "Limits number of fetched items."
+        first: Int = 10,
+        ordering: [DefaultOrdering],
+        "The offset from which items are returned."
+        page: Int
+    ): TechnologyPaginator
+    admin_towns(ordering: [DefaultOrdering]): [Town]
+    admin_towns_item(id: Int, ordering: [DefaultOrdering]): Town
+    admin_towns_paginate(
+        "Limits number of fetched items."
+        first: Int = 10,
+        ordering: [DefaultOrdering],
+        "The offset from which items are returned."
+        page: Int
+    ): TownPaginator
+    app_logs(ordering: [DefaultOrdering]): [AppLog]
+    app_logs_item(id: Int, ordering: [DefaultOrdering]): AppLog
+    app_logs_paginate(
+        "Limits number of fetched items."
+        first: Int = 10,
+        ordering: [DefaultOrdering],
+        "The offset from which items are returned."
+        page: Int
+    ): AppLogPaginator
+    app_task_comments(ordering: [DefaultOrdering]): [AppTaskComment]
+    app_task_comments_item(id: Int, ordering: [DefaultOrdering]): AppTaskComment
+    app_task_comments_paginate(
+        "Limits number of fetched items."
+        first: Int = 10,
+        ordering: [DefaultOrdering],
+        "The offset from which items are returned."
+        page: Int
+    ): AppTaskCommentPaginator
+    app_tasks(ordering: [DefaultOrdering]): [AppTask]
+    app_tasks_item(id: Int, ordering: [DefaultOrdering]): AppTask
+    app_tasks_paginate(
+        "Limits number of fetched items."
+        first: Int = 10,
+        ordering: [DefaultOrdering],
+        "The offset from which items are returned."
+        page: Int
+    ): AppTaskPaginator
+    apps(ordering: [DefaultOrdering]): [App]
+    apps_item(id: Int, ordering: [DefaultOrdering]): App
+    apps_paginate(
+        "Limits number of fetched items."
+        first: Int = 10,
+        ordering: [DefaultOrdering],
+        "The offset from which items are returned."
+        page: Int
+    ): AppPaginator
+    blogs(ordering: [DefaultOrdering], tags: Int): [Blog]
+    blogs_item(id: Int, ordering: [DefaultOrdering], tags: Int): Blog
+    blogs_paginate(
+        "Limits number of fetched items."
+        first: Int = 10,
+        ordering: [DefaultOrdering],
+        "The offset from which items are returned."
+        page: Int,
+        tags: Int
+    ): BlogPaginator
+    categories(ordering: [DefaultOrdering]): [Category]
+    categories_item(id: Int, ordering: [DefaultOrdering]): Category
+    categories_paginate(
+        "Limits number of fetched items."
+        first: Int = 10,
+        ordering: [DefaultOrdering],
+        "The offset from which items are returned."
+        page: Int
+    ): CategoryPaginator
+    child_categories(ordering: [DefaultOrdering]): [Category]
+    clients(ordering: [DefaultOrdering]): [Client]
+    clients_item(id: Int, ordering: [DefaultOrdering]): Client
+    clients_paginate(
+        "Limits number of fetched items."
+        first: Int = 10,
+        ordering: [DefaultOrdering],
+        "The offset from which items are returned."
+        page: Int
+    ): ClientPaginator
+    companyinfo: CompanyInfo
+    competences(ordering: [DefaultOrdering]): [Competence]
+    competences_item(id: Int, ordering: [DefaultOrdering]): Competence
+    competences_paginate(
+        "Limits number of fetched items."
+        first: Int = 10,
+        ordering: [DefaultOrdering],
+        "The offset from which items are returned."
+        page: Int
+    ): CompetencePaginator
+    contactinfo: ContactInfo
+    "Объеденения данных для админки"
+    join_data(
+        "Limits number of fetched items."
+        first: Int!,
+        ordering: [DefaultOrdering],
+        "The offset from which items are returned."
+        page: Int,
+        status: Int,
+        title: String,
+        type: [String],
+        updated_at_end_date: DateTime,
+        updated_at_start_date: DateTime
+    ): JoinDataPaginator
+    "Получение авторизованного пользователя"
+    me: User
+    numbers(ordering: [DefaultOrdering]): [Number]
+    numbers_item(id: Int, ordering: [DefaultOrdering]): Number
+    numbers_paginate(
+        "Limits number of fetched items."
+        first: Int = 10,
+        ordering: [DefaultOrdering],
+        "The offset from which items are returned."
+        page: Int
+    ): NumberPaginator
+    optimal_technologies(ordering: [DefaultOrdering]): [OptimalTechnology]
+    optimal_technologies_item(id: Int, ordering: [DefaultOrdering]): OptimalTechnology
+    optimal_technologies_paginate(
+        "Limits number of fetched items."
+        first: Int = 10,
+        ordering: [DefaultOrdering],
+        "The offset from which items are returned."
+        page: Int
+    ): OptimalTechnologyPaginator
+    our_services(ordering: [DefaultOrdering]): [OurServices]
+    our_services_item(id: Int, ordering: [DefaultOrdering]): OurServices
+    our_services_paginate(
+        "Limits number of fetched items."
+        first: Int = 10,
+        ordering: [DefaultOrdering],
+        "The offset from which items are returned."
+        page: Int
+    ): OurServicesPaginator
+    parent_categories(ordering: [DefaultOrdering]): [Category]
+    principle_works(ordering: [DefaultOrdering]): [PrincipleWork]
+    principle_works_item(id: Int, ordering: [DefaultOrdering]): PrincipleWork
+    principle_works_paginate(
+        "Limits number of fetched items."
+        first: Int = 10,
+        ordering: [DefaultOrdering],
+        "The offset from which items are returned."
+        page: Int
+    ): PrincipleWorkPaginator
+    projects(categories: Int, ordering: [DefaultOrdering], service_id: Int): [Project]
+    projects_item(categories: Int, id: Int, ordering: [DefaultOrdering], service_id: Int): Project
+    projects_paginate(
+        categories: Int,
+        "Limits number of fetched items."
+        first: Int = 10,
+        ordering: [DefaultOrdering],
+        "The offset from which items are returned."
+        page: Int,
+        service_id: Int
+    ): ProjectPaginator
+    results(ordering: [DefaultOrdering]): [Result]
+    results_item(id: Int, ordering: [DefaultOrdering]): Result
+    results_paginate(
+        "Limits number of fetched items."
+        first: Int = 10,
+        ordering: [DefaultOrdering],
+        "The offset from which items are returned."
+        page: Int
+    ): ResultPaginator
+    reviews(ordering: [DefaultOrdering]): [Review]
+    reviews_item(id: Int, ordering: [DefaultOrdering]): Review
+    reviews_paginate(
+        "Limits number of fetched items."
+        first: Int = 10,
+        ordering: [DefaultOrdering],
+        "The offset from which items are returned."
+        page: Int
+    ): ReviewPaginator
+    server_events(ordering: [DefaultOrdering]): [ServerEvent]
+    server_events_item(id: Int, ordering: [DefaultOrdering]): ServerEvent
+    server_events_paginate(
+        "Limits number of fetched items."
+        first: Int = 10,
+        ordering: [DefaultOrdering],
+        "The offset from which items are returned."
+        page: Int
+    ): ServerEventPaginator
+    server_load_stats(ordering: [DefaultOrdering]): [ServerLoadStat]
+    server_load_stats_item(id: Int, ordering: [DefaultOrdering]): ServerLoadStat
+    server_load_stats_paginate(
+        "Limits number of fetched items."
+        first: Int = 10,
+        ordering: [DefaultOrdering],
+        "The offset from which items are returned."
+        page: Int
+    ): ServerLoadStatPaginator
+    servers(ordering: [DefaultOrdering]): [Server]
+    servers_item(id: Int, ordering: [DefaultOrdering]): Server
+    servers_paginate(
+        "Limits number of fetched items."
+        first: Int = 10,
+        ordering: [DefaultOrdering],
+        "The offset from which items are returned."
+        page: Int
+    ): ServerPaginator
+    services(is_main: Boolean, ordering: [DefaultOrdering]): [Service]
+    services_item(id: Int, ordering: [DefaultOrdering]): Service
+    services_paginate(
+        "Limits number of fetched items."
+        first: Int = 10,
+        is_main: Boolean,
+        ordering: [DefaultOrdering],
+        "The offset from which items are returned."
+        page: Int
+    ): ServicePaginator
+    slider_types(table_name: String): [Type]
+    socials(ordering: [DefaultOrdering]): [Social]
+    socials_item(id: Int, ordering: [DefaultOrdering]): Social
+    socials_paginate(
+        "Limits number of fetched items."
+        first: Int = 10,
+        ordering: [DefaultOrdering],
+        "The offset from which items are returned."
+        page: Int
+    ): SocialPaginator
+    solutions(ordering: [DefaultOrdering]): [Solution]
+    solutions_item(id: Int, ordering: [DefaultOrdering]): Solution
+    solutions_paginate(
+        "Limits number of fetched items."
+        first: Int = 10,
+        ordering: [DefaultOrdering],
+        "The offset from which items are returned."
+        page: Int
+    ): SolutionPaginator
+    statuses(
+        "Limits number of fetched items."
+        first: Int = 10,
+        "The offset from which items are returned."
+        page: Int,
+        table_name: String
+    ): StatusPaginator
+    tags(ordering: [DefaultOrdering]): [Tag]
+    tags_item(id: Int, ordering: [DefaultOrdering]): Tag
+    tags_paginate(
+        "Limits number of fetched items."
+        first: Int = 10,
+        ordering: [DefaultOrdering],
+        "The offset from which items are returned."
+        page: Int
+    ): TagPaginator
+    tasks(ordering: [DefaultOrdering]): [Task]
+    tasks_item(id: Int, ordering: [DefaultOrdering]): Task
+    tasks_paginate(
+        "Limits number of fetched items."
+        first: Int = 10,
+        ordering: [DefaultOrdering],
+        "The offset from which items are returned."
+        page: Int
+    ): TaskPaginator
+    types(table_name: String): [Type]
+}
+
+type Result {
+    created_at: DateTime
+    id: Int
+    status: Status
+    status_id: Int
+    "Заголовок"
+    title: String
+    updated_at: DateTime
+    "Значение"
+    value: String
+}
+
+"A paginated list of Result items."
+type ResultPaginator {
+    "A list of Result items."
+    data: [Result!]!
+    "Pagination information about the list of items."
+    paginatorInfo: PaginatorInfo!
+}
+
+type Review {
+    created_at: DateTime
+    "Описание"
+    description: String
+    id: Int
+    "Изображение"
+    img: Img
+    "Изображение лого"
+    logo_image: Img
+    "Должность"
+    post: String
+    status: Status
+    status_id: Int
+    "ФИО"
+    title: String
+    updated_at: DateTime
+}
+
+"A paginated list of Review items."
+type ReviewPaginator {
+    "A list of Review items."
+    data: [Review!]!
+    "Pagination information about the list of items."
+    paginatorInfo: PaginatorInfo!
+}
+
+type Route {
+    created_at: DateTime
+    "Описание"
+    description: String
+    "Иконка"
+    icon: String
+    id: Int
+    status: Status
+    status_id: Int
+    "Названия"
+    title: String
+    updated_at: DateTime
+}
+
+"A paginated list of Route items."
+type RoutePaginator {
+    "A list of Route items."
+    data: [Route!]!
+    "Pagination information about the list of items."
+    paginatorInfo: PaginatorInfo!
+}
+
+type Server {
+    created_at: DateTime
+    id: Int
+    "IP адрес"
+    ip_address: String
+    "Локальный IP адрес"
+    local_ip_address: String
+    "Название"
+    name: String
+    updated_at: DateTime
+    "Владелец"
+    user: User
+}
+
+type ServerEvent {
+    created_at: DateTime
+    "Событие"
+    description: String
+    id: Int
+    "Сервер"
+    server: Server
+    updated_at: DateTime
+}
+
+"A paginated list of ServerEvent items."
+type ServerEventPaginator {
+    "A list of ServerEvent items."
+    data: [ServerEvent!]!
+    "Pagination information about the list of items."
+    paginatorInfo: PaginatorInfo!
+}
+
+type ServerLoadStat {
+    "CPU"
+    cpu: String
+    created_at: DateTime
+    id: Int
+    "HDD"
+    ram: String
+    "Сервер"
+    server: Server
+    updated_at: DateTime
+}
+
+"A paginated list of ServerLoadStat items."
+type ServerLoadStatPaginator {
+    "A list of ServerLoadStat items."
+    data: [ServerLoadStat!]!
+    "Pagination information about the list of items."
+    paginatorInfo: PaginatorInfo!
+}
+
+"A paginated list of Server items."
+type ServerPaginator {
+    "A list of Server items."
+    data: [Server!]!
+    "Pagination information about the list of items."
+    paginatorInfo: PaginatorInfo!
+}
+
+type Service {
+    "Привязка категорий"
+    categories: [Category]
+    created_at: DateTime
+    "Описание"
+    description: String
+    icon: String
+    id: Int
+    "На главную"
+    is_main: Boolean
+    "Направления разработки"
+    routes: [Route]
+    "Этапы услуги"
+    service_contents: [ServiceContent]
+    status: Status
+    status_id: Int
+    text: String
+    "Название"
+    title: String
+    updated_at: DateTime
+}
+
+type ServiceContent {
+    created_at: DateTime
+    "Дата"
+    data: String
+    "описание"
+    description: String
+    id: Int
+    "Позиция"
+    position: Int
+    "Название"
+    title: String
+    updated_at: DateTime
+}
+
+"A paginated list of ServiceContent items."
+type ServiceContentPaginator {
+    "A list of ServiceContent items."
+    data: [ServiceContent!]!
+    "Pagination information about the list of items."
+    paginatorInfo: PaginatorInfo!
+}
+
+"A paginated list of Service items."
+type ServicePaginator {
+    "A list of Service items."
+    data: [Service!]!
+    "Pagination information about the list of items."
+    paginatorInfo: PaginatorInfo!
+}
+
+"Information about pagination using a simple paginator."
+type SimplePaginatorInfo {
+    "Number of items in the current page."
+    count: Int!
+    "Index of the current page."
+    currentPage: Int!
+    "Index of the first item in the current page."
+    firstItem: Int
+    "Are there more pages after this one?"
+    hasMorePages: Boolean!
+    "Index of the last item in the current page."
+    lastItem: Int
+    "Number of items per page."
+    perPage: Int!
+}
+
+type Slider {
+    "Подкатегория"
+    category: Category
+    created_at: DateTime
+    id: Int
+    "Изображение"
+    img: Img
+    status: Status
+    status_id: Int
+    updated_at: DateTime
+}
+
+"A paginated list of Slider items."
+type SliderPaginator {
+    "A list of Slider items."
+    data: [Slider!]!
+    "Pagination information about the list of items."
+    paginatorInfo: PaginatorInfo!
+}
+
+type Social {
+    created_at: DateTime
+    id: Int
+    "Ссылка"
+    link: String
+    status: Status
+    status_id: Int
+    "Название соц.сети"
+    title: String
+    updated_at: DateTime
+    "Значение"
+    value: String
+}
+
+"A paginated list of Social items."
+type SocialPaginator {
+    "A list of Social items."
+    data: [Social!]!
+    "Pagination information about the list of items."
+    paginatorInfo: PaginatorInfo!
+}
+
+type Solution {
+    created_at: DateTime
+    "Описание"
+    description: String
+    id: Int
+    status: Status
+    status_id: Int
+    "Заголовок"
+    title: String
+    updated_at: DateTime
+    "Ссылка"
+    url: String
+}
+
+"A paginated list of Solution items."
+type SolutionPaginator {
+    "A list of Solution items."
+    data: [Solution!]!
+    "Pagination information about the list of items."
+    paginatorInfo: PaginatorInfo!
+}
+
+"Статус"
+type Status {
+    "Код статуса"
+    code: Int!
+    "Дата создания"
+    created_at: DateTime!
+    "id статуса (table: status)"
+    id: Int!
+    "Название статуса"
+    name: String!
+    route: String
+    "Таблица, к которой привязан статус"
+    table_name: String!
+    "Название сущности"
+    type: String
+    "Дата последнего редактирования"
+    updated_at: DateTime!
+}
+
+"A paginated list of Status items."
+type StatusPaginator {
+    "A list of Status items."
+    data: [Status!]!
+    "Pagination information about the list of items."
+    paginatorInfo: PaginatorInfo!
+}
+
+type Tag {
+    created_at: DateTime
+    id: Int
+    status: Status
+    status_id: Int
+    "Название"
+    title: String
+    updated_at: DateTime
+}
+
+"A paginated list of Tag items."
+type TagPaginator {
+    "A list of Tag items."
+    data: [Tag!]!
+    "Pagination information about the list of items."
+    paginatorInfo: PaginatorInfo!
+}
+
+type Task {
+    created_at: DateTime
+    "Описание"
+    description: String
+    id: Int
+    status: Status
+    status_id: Int
+    updated_at: DateTime
+}
+
+"A paginated list of Task items."
+type TaskPaginator {
+    "A list of Task items."
+    data: [Task!]!
+    "Pagination information about the list of items."
+    paginatorInfo: PaginatorInfo!
+}
+
+type Technology {
+    created_at: DateTime
+    id: Int
+    "Подзаголовок"
+    subtitle: String
+    "Заголовок"
+    title: String
+    updated_at: DateTime
+}
+
+"A paginated list of Technology items."
+type TechnologyPaginator {
+    "A list of Technology items."
+    data: [Technology!]!
+    "Pagination information about the list of items."
+    paginatorInfo: PaginatorInfo!
+}
+
+type Town {
+    "Координаты"
+    coordinates: String
+    created_at: DateTime
+    id: Int
+    "Позицию города"
+    position: Int
+    status: Status
+    status_id: Int
+    "Название города"
+    title: String
+    updated_at: DateTime
+}
+
+"A paginated list of Town items."
+type TownPaginator {
+    "A list of Town items."
+    data: [Town!]!
+    "Pagination information about the list of items."
+    paginatorInfo: PaginatorInfo!
+}
+
+"Тип"
+type Type {
+    "Код типа"
+    code: Int!
+    "Дата создания"
+    created_at: DateTime!
+    "id типа (table: types)"
+    id: Int!
+    "Название типа"
+    name: String!
+    "Таблица, к которой привязан тип"
+    table_name: String!
+    "Дата последнего редактирования"
+    updated_at: DateTime!
+}
+
+type UploadedImage {
+    origin_name: String
+    path: String
+    size: String
+    type: String
+}
+
+type User {
+    email: String
+    head_img: Img
+    id: Int
+    name: String
+    patronymic: String
+    status: Status
+    surname: String
+}
+
+"Aggregate functions when ordering by a relation without specifying a column."
+enum OrderByRelationAggregateFunction {
+    "Amount of items."
+    COUNT
+}
+
+"Aggregate functions when ordering by a relation that may specify a column."
+enum OrderByRelationWithColumnAggregateFunction {
+    "Average."
+    AVG
+    "Amount of items."
+    COUNT
+    "Maximum."
+    MAX
+    "Minimum."
+    MIN
+    "Sum."
+    SUM
+}
+
+"Directions for ordering a list of records."
+enum SortOrder {
+    "Sort records in ascending order."
+    ASC
+    "Sort records in descending order."
+    DESC
+}
+
+"Specify if you want to include or exclude trashed results from a query."
+enum Trashed {
+    "Only return trashed results."
+    ONLY
+    "Return both trashed and non-trashed results."
+    WITH
+    "Only return non-trashed results."
+    WITHOUT
+}
+
+"A date string with format `Y-m-d`, e.g. `2011-05-23`."
+scalar Date
+
+"A datetime string with format `Y-m-d H:i:s`, e.g. `2018-05-23 13:43:32`."
+scalar DateTime
+
+"Can be used as an argument to upload files using https://github.com/jaydenseric/graphql-multipart-request-spec"
+scalar Upload
+
+input DefaultOrdering {
+    orderBy: String!
+    orderColumn: String!
+}
+
+input FileInput {
+    "Текст при неуспешной загрузке файла"
+    alt: String
+    id: Int
+    "Название файла"
+    origin_name: String
+    "Путь к файлу"
+    path: String
+    "Размер файла (1.3 Мб)"
+    size: String
+    "Тип файла"
+    type: String
+}
+
+input ImgInput {
+    "Текст при неуспешной загрузке изображения"
+    alt: String
+    id: Int
+    "Название изображения"
+    origin_name: String!
+    "Путь к изображению"
+    path: String!
+    "Размер изображения (1.3 Мб)"
+    size: String
+    "Тип изображения"
+    type: String
+}
+
+input NumberInput {
+    description: String
+    id: Int
+    title: String
+}
+
+input OptimalTechnologyInput {
+    "Описание"
+    description: String
+    id: Int
+    "Заголовок"
+    title: String
+}
+
+"Allows ordering a list of records."
+input OrderByClause {
+    "The column that is used for ordering."
+    column: String!
+    "The direction that is used for ordering."
+    order: SortOrder!
+}
+
+input PaletteInput {
+    "Код цвета"
+    code: String
+    id: Int
+    "Название"
+    title: String
+}
+
+input PositionInput {
+    id: Int
+    position: Int
+}
+
+input PrincipleWorkInput {
+    "Описание"
+    description: String
+    id: Int
+    "Логотип"
+    logo: String
+    "Название"
+    title: String
+}
+
+input ResultInput {
+    id: Int
+    "Заголовок"
+    title: String
+    "Значение"
+    value: String
+}
+
+input ReviewInput {
+    "Описание"
+    description: String
+    id: Int
+    "Изображение"
+    img: ImgInput
+    "Изображение лого"
+    logo_image: ImgInput
+    "Должность"
+    post: String
+    "ФИО"
+    title: String
+}
+
+input RouteInput {
+    "Описание"
+    description: String
+    "Иконка"
+    icon: String
+    id: Int
+    "Названия"
+    title: String
+}
+
+input ServiceContentInput {
+    "Дата"
+    data: String
+    "описание"
+    description: String
+    id: Int
+    "Позиция"
+    position: Int
+    "Название"
+    title: String
+}
+
+input SliderInput {
+    "Подкатегория"
+    category: Int
+    id: Int
+    "Изображение"
+    img: ImgInput
+}
+
+input SocialInput {
+    id: Int
+    "Ссылка"
+    link: String
+    "Название соц.сети"
+    title: String
+    "Значение"
+    value: String
+}
+
+input SolutionInput {
+    "Описание"
+    description: String
+    id: Int
+    "Заголовок"
+    title: String
+    "Ссылка"
+    url: String
+}
+
+input StatusInput {
+    code: Int
+    id: Int
+    table_name: String
+}
+
+input TaskInput {
+    "Описание"
+    description: String
+    id: Int
+}
+
+input TechnologyInput {
+    id: Int
+    "Подзаголовок"
+    subtitle: String
+    "Заголовок"
+    title: String
+}
+
+input TownInput {
+    "Координаты"
+    coordinates: String
+    id: Int
+    "Позицию города"
+    position: Int
+    "Название города"
+    title: String
+}

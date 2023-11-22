@@ -1,0 +1,65 @@
+red = #F6554D;
+blue-1 = #2450A2;
+blue = #132F63;
+gray-5 = #828282;
+gray-4 = #515151;
+gray-3 = #515151;
+gray-2 = #e0e0e0;
+gray-1 = #FAFAFA;
+gray = #F8F8F8;
+white = #FFFFFF;
+black = #000000;
+
+:root {
+  --red: red;
+  --blue-1: blue-1;
+  --blue: blue;
+  --blue-o5: rgba(blue, 0.7);
+  --gray: gray;
+  --gray-1: gray-1;
+  --gray-2: gray-2;
+  --gray-3: gray-3;
+  --gray-4: gray-4;
+  --gray-5: gray-5;
+  --gray-5-o5: rgba(gray-5, .5);
+  --white: white;
+  --black: black;
+  --transition: 0.3s;
+  --radius: 10px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'TT Hoves', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size 16px
+}
+
+#app {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  width 100%
+}
+
+.scroll-slider {
+  .swiper-wrapper {
+    transition-timing-function: linear !important
+  }
+}
+
+a {
+  text-decoration none
+}
